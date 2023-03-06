@@ -1,0 +1,35 @@
+.study-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.study-item__subject{
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    background: linear-gradient(to top left, red, purple);
+    border-radius: 10px;
+    width: 8rem;
+    text-align: center;
+}
+
+.study-item__time{
+    font-size: 1.5rem;
+    width: 3rem;
+    text-align: center;
+
+}
+
+.study-item__memo > *{
+    text-align: left;
+    line-height: 2;
+    width: 8rem;
+}
+
+.study-item__memo__title{
+    color: gold;
+}

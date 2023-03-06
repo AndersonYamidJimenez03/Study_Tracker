@@ -1,0 +1,21 @@
+.study-date{
+    border: 3px solid white;
+    width: 6em;
+    height: 6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+
+.study-date > * {
+    color: white;
+    text-align: center;
+}
+
+.study-date__day{
+    font-size: 1.5rem;
+}
+
