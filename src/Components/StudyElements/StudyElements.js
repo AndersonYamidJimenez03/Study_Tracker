@@ -1,10 +1,12 @@
 import NewStudyLog from './NewLog/NewStudyLog';
 import './StudyElements.css';
+import StudyChart from './StudyChartElements';
 
 const StudyElement = () => {
     return (
-        <div>
+        <div className='study-element'>
             <NewStudyLog />
+            <StudyChart />
         </div>
     );
 }

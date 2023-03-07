@@ -1,0 +1,27 @@
+.Chart-bar__barContainer{
+    padding: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+}
+
+.Chart-bar__bar{
+    height: 5rem;
+    border: 1px solid white;
+    width: 1.3rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+
+}
+
+.Chart-bar__fill{
+    background-color: blueviolet;
+    height: 50%;
+    width: 100%;
+}

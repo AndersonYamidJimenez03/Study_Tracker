@@ -1,0 +1,16 @@
+.new-log{
+    padding:0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.new-log button{
+    background-color: gold;
+    color: black;
+    border: 2px solid black;
+    margin-right: 1rem;
+    padding: 0.2rem 0.5em;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    font-weight: bold;
+}
