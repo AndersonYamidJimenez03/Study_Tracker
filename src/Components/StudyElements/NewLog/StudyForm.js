@@ -1,13 +1,74 @@
 import "./StudyForm.css";
+import { useState } from "react";
 
-const StudyForm = () => {
+const StudyForm = (props) => {
+  const [userInput, setUserInput] = useState({
+    selectedSubject: "",
+    enteredTime: "",
+    enteredDate: "",
+    enteredTextArea: "",
+  });
+
+  const subjectSelected = (e) => {
+    setUserInput((preState) => {
+      return { ...preState, selectedSubject: e.target.value };
+    });
+  };
+
+  const enteredStudyTime = (e) => {
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTime: e.target.value };
+    });
+  };
+
+  const enteredDate = (e) => {
+    setUserInput((prevState) => {
+      return { ...prevState, enteredDate: e.target.value };
+    });
+  };
+
+  const enteredTextArea = (e) => {
+    setUserInput((prevState) => {
+      return {...prevState, enteredTextArea: e.target.value}
+    })
+  };
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+
+    const newItemForm = {
+      subject: userInput.selectedSubject,
+      time: userInput.enteredTime,
+      date: new Date(userInput.enteredDate),
+      memo: userInput.enteredTextArea
+    };
+
+    props.onSaveFormHandler(newItemForm);
+
+    setUserInput({
+      selectedSubject: "",
+      enteredTime: "",
+      enteredDate: "",
+      enteredTextArea: "",
+    })
+  }
+
   return (
-    <form>
+    <form onSubmit={formSubmitHandler}>
       <div className="study-form__controls">
-
         <div className="study-form__control">
-          <label for="subject">Subject</label>
-          <select name="subject" id="subject">
+          <label htmlFor="subject">Subject</label>
+          <select
+            name="subject"
+            id="subject"
+            onChange={subjectSelected}
+            value={userInput.selectedSubject}
+          >
+            {
+              <option value="" disabled hidden>
+                Choose one
+              </option>
+            }
             <option value="math">Math</option>
             <option value="physics">Physics</option>
             <option value="language">Language</option>
@@ -16,24 +77,38 @@ const StudyForm = () => {
         </div>
 
         <div className="study-form__control">
-          <label for="time">Study Time</label>
-          <input type="time" id="time" />
+          <label htmlFor="time">Study Time</label>
+          <input
+            type="time"
+            id="time"
+            onChange={enteredStudyTime}
+            value={userInput.enteredTime}
+          />
         </div>
 
         <div className="study-form__control">
-          <label for="date">Date</label>
-          <input type="date" id="date" />
+          <label htmlFor="date">Date</label>
+          <input
+            type="date"
+            id="date"
+            onChange={enteredDate}
+            value={userInput.date}
+          />
         </div>
-        
+
         <div className="study-form__control">
-          <label for="textArea">Memo</label>
-          <textarea id="textArea" />
+          <label htmlFor="textArea">Memo</label>
+          <textarea
+            id="textArea"
+            onChange={enteredTextArea}
+            value={userInput.enteredTextArea}
+          />
         </div>
       </div>
 
       <div className="study-form__btns">
-        <button className="btn btnCancel">Cancel</button>
-        <button className="btn btnSubmit">Submit</button>
+        <button type="button">Cancel</button>
+        <button type="submit">Submit</button>
       </div>
     </form>
   );

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
 
@@ -27,7 +27,7 @@
 .study-item__memo > *{
     text-align: left;
     line-height: 2;
-    width: 8rem;
+    width: 9rem;
 }
 
 .study-item__memo__title{

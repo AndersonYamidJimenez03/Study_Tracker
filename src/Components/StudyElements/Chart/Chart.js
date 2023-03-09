@@ -1,16 +1,21 @@
 import "./Chart.css";
 import ChartBar from "./ChartBar";
 
-const Chart = () => {
+const Chart = (props) => {
+
+  const dataTimes = props.dataChart.map(item => item.studyTime);
+  const maxTime = Math.max(...dataTimes);
+
   return (
     <div className="chart">
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
+      {props.dataChart.map((chartItem) => (
+        <ChartBar
+          key={chartItem.dayLabel}
+          dayLabel={chartItem.dayLabel}
+          studyTime={chartItem.studyTime}
+          maxTime={maxTime}
+        />
+      ))}
     </div>
   );
 };

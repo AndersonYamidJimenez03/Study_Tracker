@@ -1,11 +1,15 @@
 import './NewStudyLog.css';
 import StudyForm from './StudyForm';
 
-const NewStudyLog = () => {
+const NewStudyLog = (props) => {
+
+    const saveForm = (savedForm) => {
+        props.onSaveForm(savedForm);
+    }
 
     return (
         <div className='new-log'>
-            <StudyForm />
+            <StudyForm onSaveFormHandler = {saveForm}/>
         </div>
     );
 }

@@ -1,11 +1,15 @@
 import './StudyFilter.css';
 
-const StudyFilter = () => {
+const StudyFilter = (props) => {
+
+    const dropDownChange = (e) =>{
+        props.onDropDownChangeHandler(e.target.value);
+    }
 
     return (
         <div className='study-filter'>
-            <label for='filter'>Filter</label>
-            <select name='filter' id='filter'>
+            <label htmlFor='filter'>Filter by Month</label>
+            <select name='filter' id='filter' value={props.selectedMonth} onChange={dropDownChange}>
                 <option value='0'>January</option>
                 <option value='1'>February</option>
                 <option value='2'>March</option>
