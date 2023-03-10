@@ -46,13 +46,25 @@ const DUMMY_DATA = [
     date: new Date(2023, 1, 10),
     memo: "Remeber study",
   },
+  {
+    id: 7,
+    subject: "Physics",
+    time: 3,
+    date: new Date(2023, 1, 2),
+    memo: "Remeber study",
+  },
+  {
+    id: 8,
+    subject: "Physics",
+    time: 1,
+    date: new Date(2023, 1, 15),
+    memo: "Remeber study",
+  },
 ];
 
 const App = () => {
   const [filteredMonth, setFilteredMonth] = useState("2");
   const [logs, setLogs] = useState(DUMMY_DATA);
-
-  const logsNum = DUMMY_DATA.length;
 
   const filterData = logs.filter(
     (studylog) => studylog.date.getMonth().toString() === filteredMonth
@@ -64,8 +76,9 @@ const App = () => {
   };
 
   const addStudyLogHandler = (studyLog) => {
+    const submitFormItem = {id: logs.length + 1, ...studyLog};
     setLogs((prevStudyLog) => {
-      return [...prevStudyLog, studyLog];
+      return [...prevStudyLog, submitFormItem];
     })
   };
 
@@ -76,7 +89,6 @@ const App = () => {
         onDropDownChangeHandler={filterChangeHandler}
         selectedMonth={filteredMonth}
         onAddStudyLogHandler={addStudyLogHandler}
-        logs = {logsNum}
       />
       <StudyList list={filterData} />
     </div>

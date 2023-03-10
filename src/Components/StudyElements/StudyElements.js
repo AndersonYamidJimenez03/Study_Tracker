@@ -8,8 +8,7 @@ const StudyElement = (props) => {
   };
 
   const saveForm = (saved) => {
-    const submitFormItem = {...saved, id: props.logs + 1};
-    props.onAddStudyLogHandler(submitFormItem);
+    props.onAddStudyLogHandler(saved);
   };
 
   return (

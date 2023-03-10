@@ -2,7 +2,7 @@ import "./ChartBar.css";
 
 const ChartBar = (props) => {
   
-  const bar_fill = Math.round((props.studyTime / props.maxTime) * 100) || 0;
+  const bar_fill = (Math.round((props.studyTime / props.maxTime) * 100) || 0) + '%';
 
   return (
     <div className="Chart-bar__barContainer">

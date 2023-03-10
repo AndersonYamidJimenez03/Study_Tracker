@@ -17,7 +17,7 @@ const StudyForm = (props) => {
 
   const enteredStudyTime = (e) => {
     setUserInput((prevState) => {
-      return { ...prevState, enteredTime: e.target.value };
+      return { ...prevState, enteredTime: +(e.target.value) };
     });
   };
 
@@ -36,10 +36,12 @@ const StudyForm = (props) => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
+    const dateText = userInput.enteredDate.replaceAll('-', '/');
+
     const newItemForm = {
       subject: userInput.selectedSubject,
       time: userInput.enteredTime,
-      date: new Date(userInput.enteredDate),
+      date: new Date(dateText),
       memo: userInput.enteredTextArea
     };
 
@@ -52,6 +54,7 @@ const StudyForm = (props) => {
       enteredTextArea: "",
     })
   }
+
 
   return (
     <form onSubmit={formSubmitHandler}>
@@ -79,8 +82,11 @@ const StudyForm = (props) => {
         <div className="study-form__control">
           <label htmlFor="time">Study Time</label>
           <input
-            type="time"
+            type="number"
             id="time"
+            min='0.5'
+            max='24'
+            step='0.5'
             onChange={enteredStudyTime}
             value={userInput.enteredTime}
           />
@@ -92,7 +98,7 @@ const StudyForm = (props) => {
             type="date"
             id="date"
             onChange={enteredDate}
-            value={userInput.date}
+            value={userInput.enteredDate}
           />
         </div>
 
@@ -107,7 +113,7 @@ const StudyForm = (props) => {
       </div>
 
       <div className="study-form__btns">
-        <button type="button">Cancel</button>
+        <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type="submit">Submit</button>
       </div>
     </form>
