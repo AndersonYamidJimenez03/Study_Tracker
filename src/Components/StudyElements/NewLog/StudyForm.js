@@ -59,9 +59,10 @@ const StudyForm = (props) => {
   return (
     <form onSubmit={formSubmitHandler}>
       <div className="study-form__controls">
-        <div className="study-form__control">
-          <label htmlFor="subject">Subject</label>
+        {/* <div className="study-form__control"> */}
+          <label htmlFor="subject" className="subjectLabel">Subject</label>
           <select
+            className="subjectInput"
             name="subject"
             id="subject"
             onChange={subjectSelected}
@@ -77,11 +78,10 @@ const StudyForm = (props) => {
             <option value="language">Language</option>
             <option value="chemistry">Chemistry</option>
           </select>
-        </div>
 
-        <div className="study-form__control">
-          <label htmlFor="time">Study Time</label>
+          <label htmlFor="time" className="timeLabel">Study Time</label>
           <input
+            className="timeInput"
             type="number"
             id="time"
             min='0.5'
@@ -90,27 +90,25 @@ const StudyForm = (props) => {
             onChange={enteredStudyTime}
             value={userInput.enteredTime}
           />
-        </div>
 
-        <div className="study-form__control">
-          <label htmlFor="date">Date</label>
+          <label htmlFor="date" className="dateLabel">Date</label>
           <input
+            className="dateInput"
             type="date"
             id="date"
             onChange={enteredDate}
             value={userInput.enteredDate}
           />
-        </div>
 
-        <div className="study-form__control">
-          <label htmlFor="textArea">Memo</label>
+          <label htmlFor="textArea" className="memoLabel">Memo</label>
           <textarea
+            className="memoInput"
             id="textArea"
             onChange={enteredTextArea}
             value={userInput.enteredTextArea}
           />
         </div>
-      </div>
+
 
       <div className="study-form__btns">
         <button type="button" onClick={props.onCancel}>Cancel</button>

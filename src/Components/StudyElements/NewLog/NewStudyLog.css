@@ -1,16 +1,28 @@
 .new-log{
     padding:0.5rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    background: linear-gradient(to top left, red, purple);
+
 }
 
 .new-log button{
     background-color: gold;
     color: black;
     border: 2px solid black;
+    width: 10rem;
     margin-right: 1rem;
     padding: 0.2rem 0.5em;
     font-size: 1.2rem;
     border-radius: 10px;
     font-weight: bold;
+
+}
+
+.new-log button:hover, button:active{
+    cursor: pointer;
+    background-color: rgb(194, 165, 0);
+}
+
+.new-log > button{
+    display: block;
+    margin: 0 auto;
 }

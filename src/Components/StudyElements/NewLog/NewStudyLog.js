@@ -1,6 +1,7 @@
 import './NewStudyLog.css';
 import StudyForm from './StudyForm';
 import { useState } from 'react';
+import Card from '../../UI/Card';
 
 const NewStudyLog = (props) => {
 
@@ -19,10 +20,10 @@ const NewStudyLog = (props) => {
     }
 
     return (
-        <div className='new-log'>
+        <Card className='new-log'>
             {!edit && <button type='button' onClick={clickEditHandler}>Add new Study Log</button>}
             {edit && <StudyForm onSaveFormHandler = {saveForm} onCancel={cancelEditHandler}/>}
-        </div>
+        </Card>
     );
 }
 

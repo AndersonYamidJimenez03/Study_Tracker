@@ -1,5 +1,6 @@
 import "./Chart.css";
 import ChartBar from "./ChartBar";
+import Card from '../../UI/Card';
 
 const Chart = (props) => {
 
@@ -7,7 +8,7 @@ const Chart = (props) => {
   const maxTime = Math.max(...dataTimes);
 
   return (
-    <div className="chart">
+    <Card className="chart">
       {props.dataChart.map((chartItem) => (
         <ChartBar
           key={chartItem.dayLabel}
@@ -16,7 +17,7 @@ const Chart = (props) => {
           maxTime={maxTime}
         />
       ))}
-    </div>
+    </Card>
   );
 };
 
